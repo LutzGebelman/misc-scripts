@@ -1,0 +1,10 @@
+if [[ $2 != "" ]];
+then 
+    end_file=$2;
+else
+    end_file="temp";
+fi
+python="$(ls /usr/include | grep python)"
+cython --embed -o $end_file.c $1 &&\
+gcc -Os -I /usr/include/$python -o $end_file $end_file.c -l$python -lpthread -lm -lutil -ldl;
+rm $end_file.c
