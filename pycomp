@@ -1,3 +1,9 @@
+if [[ $1 == "" || $1 == "-h" || $1 == "--help" ]]; 
+then
+    echo "Usage: pycomp {path_to_script.py} [path_to_output]"
+    exit 0
+fi
+
 if [[ $2 != "" ]];
 then 
     end_file=$2;
